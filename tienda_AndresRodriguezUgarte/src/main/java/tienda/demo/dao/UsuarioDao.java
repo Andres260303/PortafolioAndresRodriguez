@@ -11,8 +11,13 @@ import tienda.demo.domain.Usuario;
  *
  * @author ulgcu
  */
-public interface UsuarioDao extends JpaRepository<Usuario, Long>{
-    
+public interface UsuarioDao extends JpaRepository<Usuario, Long> {
+
     Usuario findByUsername(String username);
-    
+
+    Usuario findByUsernameAndPassword(String username, String Password);
+
+    Usuario findByUsernameOrCorreo(String username, String correo);
+
+    boolean existsByUsernameOrCorreo(String username, String correo);
 }
